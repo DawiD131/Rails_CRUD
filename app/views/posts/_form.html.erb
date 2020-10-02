@@ -1,0 +1,30 @@
+<% if @post.errors.present? %>
+<div class="alert">
+ <p>Wystąpiły następujące błędy</p>
+ <ol>
+   <% @post.errors.full_messages.each do |message| %>
+     <li><%= message.titleize%></li>
+   <%end%> 
+ </ol>
+<%end%>
+</div>
+
+<%= form_for @post do |f| %>
+ <div class="form-group">
+  <%= f.label :title, "Tytuł" %>
+  <%= f.text_field :title, class: "input form-control"%>
+ </div>
+  <div class="form-group">
+  <%= f.label :author, "Autor" %>
+  <%= f.text_field :author, class: "input form-control"%>
+ </div>
+ <div class="form-group">
+  <%= f.label :body, "Treść" %>
+  <%= f.text_area :body, class: "input form-control"%>
+ </div>
+  <div class="form-group">
+  <%= f.label :published, "Opublikowany?" %>
+  <%= f.check_box :published, class: "checkbox form-control"%>
+ </div>
+  <%= f.submit button_name, class: "button is-primary"%>
+<% end %>

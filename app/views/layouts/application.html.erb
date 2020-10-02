@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsCrud</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="container" >
+    <div class="page-header">
+      <% if flash[:notice].present? %>
+       <div class="notification is-primary">
+        <%= flash[:notice] %>
+       </div>
+      <%end%>
+    <h1 class="title is-1">Rails_CRUD</h1>
+    </div>
+        <%= yield %>
+  </div>
+
+  </body>
+</html>
